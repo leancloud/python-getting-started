@@ -4,10 +4,13 @@ from datetime import datetime
 
 from flask import Flask
 from flask import render_template
+from leancloud import Engine
 
 from views.todos import todos_view
 
 app = Flask(__name__)
+
+# 动态路由
 app.register_blueprint(todos_view, url_prefix='/todos')
 
 
@@ -21,11 +24,10 @@ def time():
     return str(datetime.now())
 
 
-@app.route('/1/ping')
-def ping():
-    """健康监测
-    LeanEngine 会根据 `/1/ping` 判断应用是否正常运行。
-    如果返回状态码为 200 则认为正常。
-    其他状态码或者超过 5 秒没响应则认为应用运行异常。
-    """
-    return 'pong'
+# LeanEngine 云函数
+engine = Engine(app)
+
+
+@engine.define
+def hello(**params):
+    return 'Hello LeanEngine!'

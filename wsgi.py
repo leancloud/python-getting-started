@@ -5,17 +5,16 @@ import os
 import leancloud
 from wsgiref import simple_server
 
-from app import app
-from cloud import engine
+from app import engine
 
 APP_ID = os.environ['LC_APP_ID']
 MASTER_KEY = os.environ['LC_APP_MASTER_KEY']
-PORT = os.environ['LC_APP_PORT']
+PORT = int(os.environ['LC_APP_PORT'])
 
 
 leancloud.init(APP_ID, master_key=MASTER_KEY)
 
-application = engine.wrap(app)
+application = engine
 
 
 if __name__ == '__main__':
