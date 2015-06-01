@@ -2,6 +2,7 @@
 
 from leancloud import Object
 from leancloud import Query
+from leancloud import LeanCloudError
 from flask import Blueprint
 from flask import request
 from flask import redirect
@@ -17,7 +18,13 @@ todos_view = Blueprint('todos', __name__)
 
 @todos_view.route('')
 def show():
-    todos = Query(Todo).descending('createdAt').find()
+    try:
+        todos = Query(Todo).descending('createdAt').find()
+    except LeanCloudError, e:
+        if e.code == 101:  # 服务端对应的 Class 还没创建
+            todos = []
+        else:
+            raise e
     return render_template('todos.html', todos=todos)
 
 
