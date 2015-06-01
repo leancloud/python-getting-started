@@ -2,10 +2,13 @@
 
 from leancloud import Engine
 
-engine = Engine
+from app import app
 
 
-@engine.cloud_func
+engine = Engine(app)
+
+
+@engine.define
 def hello(**params):
     if 'name' in params:
         return 'Hello, {}!'.format(params['name'])

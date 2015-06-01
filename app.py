@@ -4,7 +4,6 @@ from datetime import datetime
 
 from flask import Flask
 from flask import render_template
-from leancloud import Engine
 
 from views.todos import todos_view
 
@@ -22,12 +21,3 @@ def index():
 @app.route('/time')
 def time():
     return str(datetime.now())
-
-
-# LeanEngine 云函数
-engine = Engine(app)
-
-
-@engine.define
-def hello(**params):
-    return 'Hello LeanEngine!'
