@@ -1,5 +1,13 @@
 Flask>=0.10.1
-leancloud-sdk>=1.0.9
-pyopenssl
-ndg-httpsclient
-pyasn1
+leancloud-sdk
+logentries
+nose
+requests
+blinker
+bugsnag
+threadpool>=1.2.7
+geopy
+Babel
+pytz
+iso8601
+eventlet
