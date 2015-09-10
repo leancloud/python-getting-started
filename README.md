@@ -35,6 +35,8 @@ $ ./start.sh
 
 应用即可启动运行：[localhost:3000](http://localhost:3000)
 
+注：如果你修改了 hostname，请将 localhost 替换为你自己的 hostname。
+
 ## 部署到 LeanEngine
 
 首先确认本机已经安装 [LeanCloud 命令行工具](https://leancloud.cn/docs/cloud_code_commandline.html)。
