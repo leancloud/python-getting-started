@@ -3,9 +3,14 @@
 一个简单的使用 Flask 的 Python 应用。
 可以运行在 LeanEngine Python 运行时环境。
 
-## 本地运行
+## 使用命令行工具创建项目
 
-首先确认本机已经安装 [Python](http://python.org/)2.7 运行环境。然后执行下列指令：
+请参考 [LeanCloud 命令行工具](https://leancloud.cn/docs/cloud_code_commandline.html) 文档。
+
+
+## 手动创建项目
+
+首先确认本机已经安装 [Python](http://python.org/)3.5 运行环境。然后执行下列指令：
 
 ```
 $ git clone git@github.com:leancloud/python-getting-started.git
@@ -15,11 +20,11 @@ $ cd python-getting-started
 准备启动文件:
 
 ```
-$ cp start.sh.example start.sh
+$ touch start.sh
 $ chmod +x start.sh
 ```
 
-将 app id 等信息更新到 `start.sh` 文件中：
+将 app id 等信息输入到 `start.sh` 文件中：
 
 ```
 export LC_APP_ID=<your app id>
@@ -37,7 +42,6 @@ $ ./start.sh
 
 ## 部署到 LeanEngine
 
-首先确认本机已经安装 [LeanCloud 命令行工具](https://leancloud.cn/docs/cloud_code_commandline.html)。
 
 部署到测试环境：
 ```

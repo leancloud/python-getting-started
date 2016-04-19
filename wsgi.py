@@ -7,7 +7,6 @@ import os
 
 import leancloud
 from gevent.pywsgi import WSGIServer
-from geventwebsocket.handler import WebSocketHandler
 
 from app import app
 from cloud import engine
@@ -25,5 +24,5 @@ application = engine
 if __name__ == '__main__':
     # 只在本地开发环境执行的代码
     app.debug = True
-    server = WSGIServer(('localhost', PORT), application, handler_class=WebSocketHandler)
+    server = WSGIServer(('localhost', PORT), application)
     server.serve_forever()
