@@ -32,5 +32,8 @@ def show():
 def add():
     content = request.form['content']
     todo = Todo(content=content)
-    todo.save()
+    try:
+        todo.save()
+    except LeanCloudError as e:
+        return e.error, 502
     return redirect(url_for('todos.show'))
