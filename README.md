@@ -1,52 +1,56 @@
-# Python-getting-started
+# Flask-getting-started
 
 一个简单的使用 Flask 的 Python 应用。
 可以运行在 LeanEngine Python 运行时环境。
 
 ## 本地运行
 
-首先确认本机已经安装 [Python](http://python.org/)2.7 运行环境。然后执行下列指令：
+首先确认本机已经安装 [Python](http://python.org/) 运行环境。然后执行下列指令：
+
+## 一键部署
+[![Deploy to LeanEngine](http://ac-32vx10b9.clouddn.com/109bd02ee9f5875a.png)](https://leancloud.cn/1.1/functions/_ops/deploy-button)
+
+## 本地运行
+
+首先确认本机已经安装 [Python](http://python.org/) 运行环境和 [LeanCloud 命令行工具](https://www.leancloud.cn/docs/leanengine_cli.html)，然后执行下列指令：
 
 ```
 $ git clone git@github.com:leancloud/python-getting-started.git
 $ cd python-getting-started
 ```
 
-准备启动文件:
+### 安装依赖：
 
 ```
-$ cp start.sh.example start.sh
-$ chmod +x start.sh
+pip install -r requirements.txt
 ```
 
-将 app id 等信息更新到 `start.sh` 文件中：
+### 关联应用：
 
 ```
-export LC_APP_ID=<your app id>
-export LC_APP_KEY=<your app key>
-export LC_APP_MASTER_KEY=<your master key>
+lean app add origin <appId>
 ```
 
-启动项目：
+这里的 appId 填上你在 LeanCloud 上创建的某一应用的 appId 即可。origin 则有点像 Git 里的 remote 名称。
+
+### 启动项目：
 
 ```
-$ ./start.sh
+lean up
 ```
 
 应用即可启动运行：[localhost:3000](http://localhost:3000)
 
 ## 部署到 LeanEngine
 
-首先确认本机已经安装 [LeanCloud 命令行工具](https://leancloud.cn/docs/cloud_code_commandline.html)。
-
-部署到测试环境：
+部署到预备环境（若无预备环境则直接部署到生产环境）：
 ```
-$ avoscloud deploy
+lean deploy
 ```
 
-部署到生产环境：
+将预备环境的代码发布到生产环境：
 ```
-$ avoscloud publish
+lean publish
 ```
 
 ## 相关文档
