@@ -1,0 +1,6 @@
+.git/
+.avoscloud/
+.leancloud/
+venv
+*.pyc
+__pycache__/
