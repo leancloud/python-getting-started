@@ -6,8 +6,6 @@ monkey.patch_all()
 import os
 
 import leancloud
-from gevent.pywsgi import WSGIServer
-from geventwebsocket.handler import WebSocketHandler
 
 from app import app
 from cloud import engine
@@ -26,6 +24,17 @@ application = engine
 
 if __name__ == '__main__':
     # 只在本地开发环境执行的代码
-    app.debug = True
-    server = WSGIServer(('localhost', PORT), application, handler_class=WebSocketHandler)
-    server.serve_forever()
+    from gevent.pywsgi import WSGIServer
+    from geventwebsocket.handler import WebSocketHandler
+    from werkzeug.serving import run_with_reloader
+    from werkzeug.debug import DebuggedApplication
+
+    @run_with_reloader
+    def run():
+        global application
+        app.debug = True
+        application = DebuggedApplication(application, evalex=True)
+        server = WSGIServer(('localhost', PORT), application, handler_class=WebSocketHandler)
+        server.serve_forever()
+
+    run()
