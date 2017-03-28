@@ -5,7 +5,8 @@
 
 ## 使用命令行工具创建项目
 
-请参考 [LeanCloud 命令行工具](https://leancloud.cn/docs/cloud_code_commandline.html) 文档。
+请参考 [LeanCloud 命令行工具](https://leancloud.cn/docs/leanengine_cli.html) 文档。
+目前 LeanCloud 命令行工具暂不支持 python 3.5 项目的创建。
 
 
 ## 手动创建项目
@@ -30,6 +31,9 @@ $ chmod +x start.sh
 export LC_APP_ID=<your app id>
 export LC_APP_KEY=<your app key>
 export LC_APP_MASTER_KEY=<your master key>
+export LC_APP_PORT=3000
+
+python3 wsgi.py
 ```
 
 启动项目：
@@ -45,18 +49,20 @@ $ ./start.sh
 
 部署到测试环境：
 ```
-$ avoscloud deploy
+$ lean deploy
 ```
 
 部署到生产环境：
 ```
-$ avoscloud publish
+$ lean publish
 ```
 
 ## 相关文档
 
-* [LeanEngine 指南](https://leancloud.cn/docs/leanengine_guide.html)
-* [Python SDK 指南](https://leancloud.cn/docs/python_guide.html)
-* [Python SDK API](https://leancloud.cn/docs/api/python/index.html)
-* [命令行工具详解](https://leancloud.cn/docs/cloud_code_commandline.html)
-* [LeanEngine FAQ](https://leancloud.cn/docs/cloud_code_faq.html)
+* [LeanEngine 指南](https://leancloud.cn/docs/leanengine_overview.html)
+* [Python SDK 指南](https://leancloud.cn/docs/leanstorage_guide-python.html)
+* [Python SDK API](https://leancloud.readthedocs.io/zh_CN/latest/)
+* [命令行工具详解](https://leancloud.cn/docs/leanengine_cli.html)
+* [LeanEngine FAQ](https://leancloud.cn/docs/faq_list.html)
+
+
