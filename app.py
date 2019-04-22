@@ -1,8 +1,8 @@
 # coding: utf-8
-
+import sys
 from datetime import datetime
 
-from flask import Flask
+from flask import Flask, jsonify
 from flask import render_template
 from flask_sockets import Sockets
 
@@ -30,3 +30,8 @@ def echo_socket(ws):
     while True:
         message = ws.receive()
         ws.send(message)
+
+
+@app.route('/api/python-version', methods=['GET'])
+def python_version():
+    return jsonify({"python-version": sys.version})
