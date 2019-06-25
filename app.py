@@ -25,6 +25,12 @@ def time():
     return str(datetime.now())
 
 
+@app.route('/version')
+def print_version():
+    import sys
+    return sys.version
+
+
 @sockets.route('/echo')
 def echo_socket(ws):
     while True:
