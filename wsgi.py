@@ -24,9 +24,9 @@ leancloud.use_master_key(False)
 app = engine.wrap(app)
 application = app
 
-
+# 以下代码只在本地开发环境执行
 if __name__ == '__main__':
-    # 只在本地开发环境执行的代码
+    
     from gevent.pywsgi import WSGIServer
     from geventwebsocket.handler import WebSocketHandler
     from werkzeug.serving import run_with_reloader
