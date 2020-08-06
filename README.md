@@ -53,8 +53,9 @@ lean publish
 
 ## 相关文档
 
-* [LeanEngine 指南](https://leancloud.cn/docs/leanengine_guide.html)
-* [Python SDK 指南](https://leancloud.cn/docs/python_guide.html)
-* [Python SDK API](https://leancloud.cn/docs/api/python/index.html)
-* [命令行工具详解](https://leancloud.cn/docs/cloud_code_commandline.html)
-* [LeanEngine FAQ](https://leancloud.cn/docs/cloud_code_faq.html)
+* [网站托管开发指南 · Python](https://leancloud.cn/docs/leanengine_webhosting_guide-python.html)
+* [云函数开发指南 · Python](https://leancloud.cn/docs/leanengine_cloudfunction_guide-python.html)
+* [数据存储开发指南 · Python](https://leancloud.cn/docs/leanstorage_guide-python.html)
+* [Python SDK API](https://leancloud.github.io/python-sdk/)
+* [LeanCloud 命令行工具详解](https://leancloud.cn/docs/leanengine_cli.html)
+* [云引擎常见问题和解答](https://leancloud.cn/docs/leanengine_faq.html)
