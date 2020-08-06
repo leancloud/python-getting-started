@@ -1,54 +1,42 @@
 # Flask-getting-started
 
-一个简单的使用 Flask 的 Python 应用。
-可以运行在 LeanEngine Python 运行时环境。
+A simple Python application based on Flask for LeanEngine Python runtime.
 
-## 本地运行
+[中文 README](/README-zh.md)
 
-首先确认本机已经安装 [Python](http://python.org/) 运行环境和 [LeanCloud 命令行工具](https://www.leancloud.cn/docs/leanengine_cli.html)，然后执行下列指令：
+## Local Development
 
-```
-$ git clone git@github.com:leancloud/python-getting-started.git
-$ cd python-getting-started
-```
+First make sure [Python](http://python.org/) and [lean-cli](https://docs.leancloud.app/leanengine_cli.html#hash2037210682) are installed on the machine, then run the following commands:
 
-### 安装依赖
-
-```
+```sh
+# clone the repository
+git clone git@github.com:leancloud/python-getting-started.git
+cd python-getting-started
+# install dependencies
 pip install -r requirements.txt
-```
-
-### 关联应用
-
-```
+# connect LeanCloud application
 lean switch
-```
-
-### 启动项目
-
-```
+# run the project locally
 lean up
 ```
 
-应用即可启动运行：[localhost:3000](http://localhost:3000)
+Open http://localhost:3000 in your browser to view the homepage of your project.
 
-## 部署到 LeanEngine
+## Deploy to LeanEngine
 
-部署到预备环境（若无预备环境则直接部署到生产环境）：
+Run the following command to deploy your project to the production environment (if you haven't purchased a standard instance):
+
 ```
 lean deploy
 ```
 
-将预备环境的代码发布到生产环境：
-```
-lean publish
-```
+If you have purchased a standard instance, your project will be deployed to the staging environment first when you run `lean deploy`.
+You need to run `lean publish` to deploy the code in the staging environment to the production environment.
 
-## 相关文档
+## Documentation
 
-* [网站托管开发指南 · Python](https://leancloud.cn/docs/leanengine_webhosting_guide-python.html)
-* [云函数开发指南 · Python](https://leancloud.cn/docs/leanengine_cloudfunction_guide-python.html)
-* [数据存储开发指南 · Python](https://leancloud.cn/docs/leanstorage_guide-python.html)
+* [Python Web Hosting Guide](https://docs.leancloud.app/leanengine_webhosting_guide-python.html)
+* [Python Cloud Function Guide](https://docs.leancloud.app/leanengine_cloudfunction_guide-python.html)
+* [LeanStorage Python Guide](https://docs.leancloud.app/leanstorage_guide-python.html)
 * [Python SDK API](https://leancloud.github.io/python-sdk/)
-* [LeanCloud 命令行工具详解](https://leancloud.cn/docs/leanengine_cli.html)
-* [云引擎常见问题和解答](https://leancloud.cn/docs/leanengine_faq.html)
+* [lean-cli Guide](https://docs.leancloud.app/leanengine_cli.html)
