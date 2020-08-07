@@ -18,20 +18,21 @@ jobs:
     steps:
       - name: Install lean-cli
         run: |
-          wget --quiet -O /usr/local/bin/lean https://github.com/leancloud/lean-cli/releases/download/v0.23.0/lean-linux-x64
-          chmod a+x /usr/local/bin/lean
+          mkdir .leancloud
+          wget --quiet -O .leancloud/lean https://github.com/leancloud/lean-cli/releases/download/v0.23.0/lean-linux-x64
+          chmod a+x .leancloud/lean
 
       - name: Login
         env:
           LC_USER: ${{ secrets.LEANCLICI }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: lean login --username $LC_USER --password $PASSWORD --region US
+        run: .leancloud/lean login --username $LC_USER --password $PASSWORD --region US
 
       - name: Connect
         env:
           APPID: ${{ secrets.PYTHON_FLASK_CI }}
-        run: lean switch --region US --group web $APPID
+        run: .leancloud/lean switch --region US --group web $APPID
 
       - name: Deploy
-        run: lean deploy
+        run: .leancloud/lean deploy
     
