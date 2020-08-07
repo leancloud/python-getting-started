@@ -13,7 +13,7 @@ from views.todos import todos_view
 app = Flask(__name__)
 sockets = Sockets(app)
 
-# 动态路由
+# routing
 app.register_blueprint(todos_view, url_prefix='/todos')
 
 
@@ -98,7 +98,7 @@ def todos():
         try:
             todo_list = leancloud.Query(leancloud.Object.extend('Todo')).descending('createdAt').find()
         except LeanCloudError as e:
-            if e.code == 101:  # 服务端对应的 Class 还没创建
+            if e.code == 101:  # Class does not exist on the cloud.
                 return jsonify([])
             else:
                 raise BadGateway(e.error, e.code)

@@ -21,7 +21,7 @@ def show():
     try:
         todos = Query(Todo).descending('createdAt').find()
     except LeanCloudError as e:
-        if e.code == 101:  # 服务端对应的 Class 还没创建
+        if e.code == 101:  # Class does not exist on the cloud. 
             todos = []
         else:
             raise e
