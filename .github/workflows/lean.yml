@@ -28,14 +28,14 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: lean login --username "$LC_USER" --password "$PASSWORD" --region US
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Connect
         env:
           APPID: ${{ secrets.PYTHON_FLASK_CI }}
         run: lean switch --region US --group web "$APPID"
 
       - name: Deploy
-        run: |
-          pwd
-          head README.md
-          lean deploy
+        run: lean deploy
     
