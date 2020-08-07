@@ -35,6 +35,7 @@ jobs:
 
       - name: Deploy
         run: |
-          ls
+          pwd
+          head README.md
           lean deploy
     
