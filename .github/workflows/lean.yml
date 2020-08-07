@@ -26,12 +26,12 @@ jobs:
         env:
           LC_USER: ${{ secrets.LEANCLICI }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: .leancloud/lean login --username $LC_USER --password $PASSWORD --region US
+        run: .leancloud/lean login --username "$LC_USER" --password "$PASSWORD" --region US
 
       - name: Connect
         env:
           APPID: ${{ secrets.PYTHON_FLASK_CI }}
-        run: .leancloud/lean switch --region US --group web $APPID
+        run: .leancloud/lean switch --region US --group web "$APPID"
 
       - name: Deploy
         run: .leancloud/lean deploy
