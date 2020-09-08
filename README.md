@@ -1,11 +1,3 @@
-# Flask-getting-started
+This is only used for compatibility testing.
 
-A simple Python application based on Flask for LeanEngine Python runtime.
-
-## Documentation
-
-* [Python Web Hosting Guide](https://docs.leancloud.app/leanengine_webhosting_guide-python.html)
-* [Python Cloud Function Guide](https://docs.leancloud.app/leanengine_cloudfunction_guide-python.html)
-* [LeanStorage Python Guide](https://docs.leancloud.app/leanstorage_guide-python.html)
-* [Python SDK API](https://leancloud.github.io/python-sdk/)
-* [lean-cli Guide](https://docs.leancloud.app/leanengine_cli.html)
+We do not recommend using this branch in production since Python 2 has already reached its end of life.
