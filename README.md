@@ -15,6 +15,6 @@ A simple Python application based on Flask for LeanEngine Python runtime.
 This project supports the following Python versions (the same as [LeanCloud Python SDK][sdk]):
 
 - Python 2.7
-- Python 3.5, 3.6, 3.7, 3.8
+- Python 3.6, 3.7, 3.8, 3.9
 
 [sdk]: https://github.com/leancloud/python-sdk
