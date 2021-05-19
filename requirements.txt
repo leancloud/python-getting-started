@@ -1,5 +1,4 @@
-werkzeug==0.16.0
 gevent-websocket>=0.9.5,<1.0.0
-leancloud>=2.9.1,<3.0.0
+leancloud>=2.9.3,<3.0.0
 Flask>=1.0.0
 Flask-Sockets>=0.1,<1.0
