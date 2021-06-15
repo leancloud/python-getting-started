@@ -25,28 +25,19 @@ app = engine.wrap(app)
 application = app
 
 if __name__ == '__main__':
-
     from gevent.pywsgi import WSGIServer
     from geventwebsocket.handler import WebSocketHandler
 
-    if os.environ['LEANCLOUD_APP_ENV'] == 'production':
-        class NopLogger(object):
-            def write(self, _):
-                pass
-
-        server = WSGIServer(('', PORT), application, log=NopLogger(), handler_class=WebSocketHandler)
+    env = os.environ['LEANCLOUD_APP_ENV']
+    if env == 'production':
+        server = WSGIServer(('0.0.0.0', PORT), application, log=None, handler_class=WebSocketHandler)
         server.serve_forever()
-
     else:
         from werkzeug.serving import run_with_reloader
         from werkzeug.debug import DebuggedApplication
 
-        @run_with_reloader
-        def run():
-            global application
-            app.debug = True
-            application = DebuggedApplication(application, evalex=True)
-            server = WSGIServer(('localhost', PORT), application, handler_class=WebSocketHandler)
-            server.serve_forever()
-
-        run()
+        app.debug = True
+        application = DebuggedApplication(application, evalex=True)
+        address = 'localhost' if env == 'development' else '0.0.0.0'
+        server = WSGIServer((address, PORT), application, handler_class=WebSocketHandler)
+        run_with_reloader(server.serve_forever)
