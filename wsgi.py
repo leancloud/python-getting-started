@@ -24,21 +24,20 @@ leancloud.use_master_key(False)
 app = engine.wrap(app)
 application = app
 
-# The code below will only be executed locally (`lean up`),
-# and will not be executed on the cloud.
 if __name__ == '__main__':
-    
     from gevent.pywsgi import WSGIServer
     from geventwebsocket.handler import WebSocketHandler
-    from werkzeug.serving import run_with_reloader
-    from werkzeug.debug import DebuggedApplication
 
-    @run_with_reloader
-    def run():
-        global application
+    env = os.environ['LEANCLOUD_APP_ENV']
+    if env == 'production':
+        server = WSGIServer(('0.0.0.0', PORT), application, log=None, handler_class=WebSocketHandler)
+        server.serve_forever()
+    else:
+        from werkzeug.serving import run_with_reloader
+        from werkzeug.debug import DebuggedApplication
+
         app.debug = True
         application = DebuggedApplication(application, evalex=True)
-        server = WSGIServer(('localhost', PORT), application, handler_class=WebSocketHandler)
-        server.serve_forever()
-
-    run()
+        address = 'localhost' if env == 'development' else '0.0.0.0'
+        server = WSGIServer((address, PORT), application, handler_class=WebSocketHandler)
+        run_with_reloader(server.serve_forever)
