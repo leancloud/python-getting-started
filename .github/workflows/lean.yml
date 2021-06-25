@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Install lean-cli
         run: |
-          wget --quiet -O lean https://github.com/leancloud/lean-cli/releases/download/v0.24.4/lean-linux-x64
+          wget --quiet -O lean https://github.com/leancloud/lean-cli/releases/download/v0.25.0/lean-linux-x64
           sudo mv lean /usr/local/bin/lean
           chmod a+x /usr/local/bin/lean 
 
