@@ -24,9 +24,8 @@ jobs:
 
       - name: Login
         env:
-          LC_USER: ${{ secrets.LEANCLICI }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: lean login --username "$LC_USER" --password "$PASSWORD" --region us-w1
+          TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: lean login --token "$TOKEN"
 
       - name: Checkout code
         uses: actions/checkout@v2
