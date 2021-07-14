@@ -25,7 +25,7 @@ jobs:
       - name: Login
         env:
           TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: lean login --token "$TOKEN"
+        run: lean login --region us-w1 --token "$TOKEN"
 
       - name: Checkout code
         uses: actions/checkout@v2
