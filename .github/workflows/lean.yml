@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Install lean-cli
         run: |
-          wget --quiet -O lean https://github.com/leancloud/lean-cli/releases/download/v0.25.0/lean-linux-x64
+          wget --quiet -O lean https://github.com/leancloud/lean-cli/releases/download/v1.0.0/lean-linux-x64
           sudo mv lean /usr/local/bin/lean
           chmod a+x /usr/local/bin/lean 
 
@@ -36,5 +36,5 @@ jobs:
         run: lean switch --region US --group web "$APPID"
 
       - name: Deploy
-        run: lean deploy
+        run: lean deploy --prod
     
